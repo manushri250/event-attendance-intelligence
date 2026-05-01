@@ -1,0 +1,159 @@
+================================================================
+       SHAASTRA IOH - REGISTRATION & ATTENDANCE ANALYSIS
+================================================================
+Prepared for : Shaastra Publicity Team
+Data Source : IOH.csv
+Document Type : Executive Summary
+
+
+DATASET OVERVIEW
+================
+Total Registrations : 3,000
+Total Attendees : 1,175
+Total No-Shows : 1,825
+Conversion Rate : 39.17%
+Target Variable : isPresent  (0 = did not attend, 1 = attended)
+Key Finding : 4 in every 10 people who registered actually showed up
+
+
+CONVERSION BY CATEGORY
+======================
+Best Category : INSTITUTE
+Conversion : 72.6%  (62 registrations)
+Status : Highest converting segment - prioritise this group
+
+Weakest Category : OTHERS
+Conversion : 30.3%  (508 registrations)
+Status : Lowest converting - outreach strategy needs review
+
+FAMILY : 42.6%  (1,070 registrations) - Above average
+INDUSTRY PROFESSIONAL : 38.6%  (132 registrations) - Average
+COLLEGE STUDENT : 38.2%  (1,228 registrations) - Slightly below average
+
+
+REGISTRATION TYPE
+=================
+GROUP Conversion : 44.3%
+INDIVIDUAL Conversion : 36.1%
+Difference : 8.2 percentage points in favour of GROUP
+Action : Encourage group sign-ups - they show stronger attendance intent
+  than individual registrations
+
+
+COLLEGE PERFORMANCE
+===================
+
+Colleges Performing Well
+------------------------
+1. University of Madras
+Registrations : 50
+Conversion : 54.0%
+Note : Highest converting college with meaningful volume
+
+2. Anna University
+Registrations : 60
+Conversion : 46.7%
+
+3. Ethiraj College for Women
+Registrations : 51
+Conversion : 43.1%
+
+4. Velammal Institute of Technology
+Registrations : 235
+Conversion : 41.3%
+Note : Largest volume college with above average conversion
+
+Finding : Study the outreach used for these colleges and replicate it.
+  They prove strong conversion is achievable with the right communication.
+
+
+Colleges Needing Attention
+--------------------------
+1. Chennai Institute of Technology
+Registrations : 105
+Conversion : 29.5%
+Note : High volume, very low conversion - follow up now
+
+2. Sathyabama Institute of Science and Technology
+Registrations : 66
+Conversion : 31.8%
+Note : Significant drop-off needs targeted intervention
+
+Finding : These two colleges together account for 171 registrations at
+  below 32% conversion. This is a recoverable pool if followed up directly.
+
+
+STATE AND CITY BREAKDOWN
+========================
+
+By State
+--------
+Puducherry : 42.6% - Strong
+Tamil Nadu : 42.2% - Strong  (1,968 registrations)
+Kerala : 34.1% - Below average
+Andhra Pradesh : 33.3% - Below average
+Telangana : 32.3% - Below average
+Karnataka : 29.6% - Weakest state
+
+Geographic Finding : Karnataka is the weakest state at 29.6%. More
+  registrations from Karnataka is not the answer - the current ones are
+  not converting. A different outreach approach is needed there.
+
+Top Cities
+----------
+Chennai : 50.5%  (206 registrations)
+Tiruvallur : 42.9%  (182 registrations)
+Nellore : 42.1%  (190 registrations)
+Guntur : 41.3%  (179 registrations)
+Vellore : 40.6%  (202 registrations)
+
+
+PREDICTION MODEL
+================
+Models Trained : Logistic Regression, Random Forest, Gradient Boosting
+Model Selected : Logistic Regression
+ROC-AUC Score : 0.567
+F1-Score : 0.471
+Encoding Used : Smoothed target encoding for collegeName, city, and state.
+  One-hot encoding for registerType and category.
+Features Used : groupSize_capped, isGroup, hasCompany, registerType,
+  category, collegeName_target, city_target, state_target
+Train / Test Split : 80% training  /  20% testing  (stratified)
+
+Model Interpretation : Out of 100 random pairs of one attendee and one
+  no-show, the model correctly identifies which is which 57 times. Better
+  than random guessing but not a perfect predictor.
+
+Model Limitation : The data ceiling limits accuracy. Future editions should
+  collect registration timestamp, distance from venue, communication
+  channel, reminder response, and prior IOH attendance history to
+  significantly improve the model.
+
+
+RECOMMENDATIONS
+===============
+1. Priority : Follow up directly with Chennai Institute of Technology and
+  Sathyabama - 171 registrations at below 32% conversion is recoverable.
+
+2. Segment Focus : Target INSTITUTE registrations with dedicated outreach -
+  72.6% conversion makes them the most reliable attendees.
+
+3. Registration Push : Promote group registrations over individual ones -
+  44.3% vs 36.1% conversion speaks for itself.
+
+4. Karnataka : Do not just push more registrations there. Rethink the
+  messaging and channel entirely. 29.6% conversion means the current
+  approach is not working.
+
+5. Replicate Success : Identify what was done differently for University of
+  Madras and Anna University and apply it to underperforming colleges.
+
+6. Data Collection : Next year collect registration timestamp, distance from
+  venue, reminder open rates, and prior attendance history. This will push
+  model accuracy well beyond its current ceiling.
+
+
+================================================================
+  All metrics computed from IOH.csv  |  Model tested on held-out
+  20% test set  |  Previous IOH event data
+================================================================
