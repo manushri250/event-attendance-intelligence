@@ -13,7 +13,6 @@ Download or clone the complete repository. The dashboard expects these files and
 - `plots/` - generated dashboard plots
 - `requirements.txt` - Python packages needed to run the app
 
-Do not upload or share the local `venv/` folder. Each organizer should create their own virtual environment.
 
 ## Local setup
 
@@ -29,11 +28,8 @@ Check that Python is available:
 python --version
 ```
 
-### 2. Download the project
-
-From GitHub, click **Code** > **Download ZIP**, then extract the ZIP file.
-
-Alternatively, clone the repository:
+### 2. Cloning the project
+Clone the repository:
 
 ```bash
 git clone https://github.com/<your-github-username>/Shaastra_2026_IOH_Project.git
